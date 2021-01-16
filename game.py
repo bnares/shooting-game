@@ -12,6 +12,8 @@ class Crosshair(pygame.sprite.Sprite):
         self.image = pygame.image.load(picturePath)
         self.rect = self.image.get_rect()
 
+    def update(self):
+        self.rect.center = pygame.mouse.get_pos()
 
 
 
@@ -36,6 +38,7 @@ while True:
             pygame.quit()
             sys.exit()
 
+    crosshair.update()
     screen.blit(background, (0,0))
     group.draw(screen)
     pygame.display.update()
