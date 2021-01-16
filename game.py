@@ -3,15 +3,15 @@ import pygame, sys
 
 pygame.init()
 clock = pygame.time.Clock()
+pygame.mouse.set_visible(False)
 
 
 class Crosshair(pygame.sprite.Sprite):
-    def __init__(self, width,height, pos_x,pos_y, color):
+    def __init__(self, picturePath):
         super().__init__()
-        self.image = pygame.Surface((width,height))
-        self.image.fill(color)
+        self.image = pygame.image.load(picturePath)
         self.rect = self.image.get_rect()
-        self.rect.center = (pos_x, pos_y)
+
 
 
 
@@ -26,7 +26,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 background = pygame.image.load("bg.png")
 
 
-crosshair = Crosshair(50,50,100,100, (255,255,255))
+crosshair = Crosshair("crosshair_blue_small.png")
 
 group = pygame.sprite.Group()
 group.add(crosshair)
